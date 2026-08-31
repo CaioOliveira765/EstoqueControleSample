@@ -57,12 +57,14 @@ fun ProductHubScreen(viewModel: ProductViewModel = viewModel()) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(
-            onClick = { viewModel.insert(dummyProduct) },
+            onClick = {
+                context.startActivity(Intent(context, AddProductActivity::class.java))
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 8.dp)
         ) {
-            Text("Inserir Produto")
+            Text("Cadastrar Novo Produto")
         }
 
         Button(

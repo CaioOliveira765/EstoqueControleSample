@@ -24,6 +24,10 @@
             android:name=".presentation.ProductListActivity"
             android:exported="false"
             android:label="Lista de Produtos" />
+        <activity
+            android:name=".presentation.AddProductActivity"
+            android:exported="false"
+            android:label="Cadastrar Produto" />
     </application>
 
 </manifest>
