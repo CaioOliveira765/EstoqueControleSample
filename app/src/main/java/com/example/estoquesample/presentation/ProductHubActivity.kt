@@ -1,5 +1,6 @@
 package com.example.estoquesample.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -39,12 +40,13 @@ class ProductHubActivity : ComponentActivity() {
 
 @Composable
 fun ProductHubScreen(viewModel: ProductViewModel = viewModel()) {
+    val context = androidx.compose.ui.platform.LocalContext.current
     // Exemplo de produto para demonstrar as ações
     val dummyProduct = Product(
-        name = "Produto Exemplo",
-        code = "ABC-123",
-        quantity = 50,
-        price = 29.90
+        name = "Produto Exemplo 2",
+        code = "ABC-456",
+        quantity = 47,
+        price = 90.90
     )
 
     Column(
@@ -76,8 +78,19 @@ fun ProductHubScreen(viewModel: ProductViewModel = viewModel()) {
             onClick = { viewModel.delete(dummyProduct) },
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(bottom = 8.dp)
         ) {
             Text("Deletar Produto")
+        }
+
+        Button(
+            onClick = {
+                context.startActivity(Intent(context, ProductListActivity::class.java))
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            Text("Listar Produtos")
         }
     }
 }
